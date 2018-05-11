@@ -1,5 +1,6 @@
 package com.dyl.String;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,41 +10,66 @@ import java.util.Map;
  */
 public class Anagram {
 
-    public static boolean isAnagram(String s, String t) {
+    /***
+     * 第一种方法, 直接count每个字符出现的次数是否相同
+     * 第二种, 使用hash map
+     * @param s 字符串
+     * @param c 需要统计出现次数的字符
+     * @return 字符在字符串中出现的次数
+     */
+    public int countChar(String s, char c){
+        int count = 0;
+        for(char sc : s.toCharArray()){
+            if (sc == c){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public boolean isAnagram01(String s, String t) {
         if(s.length() != t.length()){
             return false;
         }
-        Map<Character, Integer> cache = new HashMap<>(26 * 2);
-        boolean res = true;
-        for(char c : s.toCharArray()){
-            if(cache.containsKey(c)){
-                cache.put(c, cache.get(c)+1);
-            }else{
-                cache.put(c, 1);
+        for (char c='a';c<'z';c++){
+            int sc = countChar(s, c);
+            int tc = countChar(t, c);
+            if(sc != tc){
+                return false;
             }
         }
-        for(char c : t.toCharArray()){
-            if(cache.containsKey(c)){
-                cache.put(c, cache.get(c)-1);
-            }else{
-                res = false;
-            }
+        return true;
+    }
+
+    public boolean isAnagram02(String s, String t) {
+        if(s.length() != t.length()){
+            return false;
         }
-        if(res){
-            for(Map.Entry<Character, Integer> entry: cache.entrySet()){
-                if(entry.getValue() != 0){
-                    res = false;
-                    break;
-                }
+        char[] a = s.toCharArray();
+        char[] b = t.toCharArray();
+        Arrays.sort(a);
+        Arrays.sort(b);
+        int i = 0;
+        while (i<s.length()){
+            if (a[i] != b[i]){
+                return false;
             }
+            i++;
         }
-        return res;
+        return true;
+    }
+
+
+
+    public boolean isAnagram(String s, String t) {
+        return isAnagram02(s, t);
     }
 
     public static void main(String[] args){
-        String s = "";
-        String t = "";
-        System.out.println(isAnagram(s, t));
+        Anagram anagram = new Anagram();
+        String s = "a";
+        String t = "b";
+        System.out.println(anagram.isAnagram(s, t));
     }
 
 }
