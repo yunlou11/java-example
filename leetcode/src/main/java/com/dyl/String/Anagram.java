@@ -11,6 +11,7 @@ import java.util.Map;
 public class Anagram {
 
     /***
+     * 有效的字母异位词
      * 第一种方法, 直接count每个字符出现的次数是否相同
      * 第二种, 使用hash map
      * @param s 字符串

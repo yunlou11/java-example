@@ -5,6 +5,7 @@ package com.dyl.String;
  */
 public class ReverseInteger {
 
+    // 反转整数
     public static int reverse(int x) {
         int abs = 1;
         if(x<0){

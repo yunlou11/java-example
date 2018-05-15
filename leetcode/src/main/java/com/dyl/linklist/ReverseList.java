@@ -5,6 +5,7 @@ package com.dyl.linklist;
  */
 public class ReverseList {
 
+    // 反转链表 迭代实现
     public ListNode reverseList(ListNode head) {
         if(head == null){
             return null;
@@ -20,6 +21,21 @@ public class ReverseList {
         }
         return res;
     }
+    // 递归实现
+    public ListNode reverseList2(ListNode head) {
+        if(head == null || head.next == null){
+            return head;
+        }
+        ListNode res = reverseList2(head.next);
+        ListNode node;
+        node=res;
+        while (node.next != null) {
+            node = node.next;
+        }
+        node.next = head;
+        head.next = null;
+        return res;
+    }
 
     public static void main(String[] args){
         ReverseList rl = new ReverseList();
@@ -32,7 +48,7 @@ public class ReverseList {
         l2.next = l3;
         l3.next = l4;
         l4.next = l5;
-        ListNode res = rl.reverseList(l1);
+        ListNode res = rl.reverseList2(l1);
 
         for(ListNode l=res;l!=null;l=l.next){
             System.out.print(l.val +" ");

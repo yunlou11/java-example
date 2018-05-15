@@ -5,6 +5,7 @@ package com.dyl.String;
  */
 public class AtoI {
 
+    // 字符串转整数
     public int myAtoi(String str) {
         int res = 0;
         str = str.trim();

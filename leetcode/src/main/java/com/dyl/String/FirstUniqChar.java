@@ -8,6 +8,7 @@ import java.util.Map;
  */
 public class FirstUniqChar {
 
+    // 字符串中第一个唯一字符
     public static int firstUniqChar(String s){
         int res = -1;
         Map<Character, Integer> cache = new HashMap<>();

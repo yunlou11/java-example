@@ -5,6 +5,7 @@ package com.dyl.String;
  */
 public class StrStr {
 
+    // 子串出现第一个位置
     public int strStr(String haystack, String needle) {
         int index = -1;
         if( needle == null  || "".equals(needle)){

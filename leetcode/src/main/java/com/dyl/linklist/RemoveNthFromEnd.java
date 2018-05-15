@@ -5,6 +5,7 @@ package com.dyl.linklist;
  */
 public class RemoveNthFromEnd {
 
+    // 删除链表的倒数第N个节点
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode tmpHead = new ListNode(-1);
         tmpHead.next = head;

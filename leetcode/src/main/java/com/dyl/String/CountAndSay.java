@@ -5,6 +5,7 @@ package com.dyl.String;
  */
 public class CountAndSay {
 
+    // 数数并说
     public String countAndSay(int n) {
 
         String res = "1";

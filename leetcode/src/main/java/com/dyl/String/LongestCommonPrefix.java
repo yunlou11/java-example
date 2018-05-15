@@ -5,6 +5,7 @@ package com.dyl.String;
  */
 public class LongestCommonPrefix {
 
+    // 最长公共前缀
     public String longestCommonPrefix(String[] strs) {
         StringBuilder res = new StringBuilder("");
         int length = 0;

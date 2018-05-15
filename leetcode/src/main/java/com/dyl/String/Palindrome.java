@@ -5,6 +5,7 @@ package com.dyl.String;
  */
 public class Palindrome {
 
+    // 验证回文字符串
     public boolean isPalindrome(String s) {
         if(s==null || "".equals(s)){
             return true;
